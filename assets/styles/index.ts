@@ -290,6 +290,7 @@ export default StyleSheet.create({
     borderRadius: 25,
     backgroundColor: SECONDARY_COLOR,
     paddingHorizontal: 20,
+    marginBottom: 20,
   },
 
   // MENU

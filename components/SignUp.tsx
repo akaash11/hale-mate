@@ -1,38 +1,70 @@
 // components/signup.js
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+
+const getMessageFromErrorCode = (errorCode: any): "Email Id already registered" | "Invalid EmailId" | "Invalid Password" | "Invalid User" | "Invalid User" => {
+    switch(errorCode){
+        case "auth/email-already-exists":
+            return "Email Id already registered";
+        case "auth/invalid-email":
+            return "Invalid EmailId";
+        case "auth/invalid-password":
+            return "Invalid Password";
+        case "auth/wrong-password":
+            return "Wrong Password";
+        default:
+            return "Invalid User";
+    }
+}
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [displayName, setDisplayName] = useState(''); 
+    const [displayName, setDisplayName] = useState('');
+    const [isSignUp, setIsSignUp] = useState(true);
+    const handleButtonClick = () => {
+        isSignUp ? registerUser() : loginUser();
+    }
+    const loginUser = () => {
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => { 
+          const user = userCredential.user;
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode);
+          Alert.alert(getMessageFromErrorCode(errorCode));
+        });
+    }
     const registerUser = () => {
         if (email === '' && password === '') {
             Alert.alert('Enter details to signup!')
         } else {
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
-            });
+                    const user = userCredential.user;
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    Alert.alert(errorMessage);
+                });
         }
     }
     return (
         <View style={styles.container}>
-            <TextInput
-                style={styles.inputStyle}
-                placeholder="Name"
-                value={displayName}
-                onChangeText={(val) => setDisplayName(val)}
-            />
+            {
+                isSignUp ? (<TextInput
+                    style={styles.inputStyle}
+                    placeholder="Name"
+                    value={displayName}
+                    onChangeText={(val) => setDisplayName(val)}
+                />) : null
+            }
+
             <TextInput
                 style={styles.inputStyle}
                 placeholder="Email"
@@ -49,14 +81,22 @@ const SignUp = () => {
             />
             <Button
                 color="#3740FE"
-                title="Signup"
-                onPress={() => registerUser()}
+                title={isSignUp?"Signup":"Login"}
+                onPress={() => handleButtonClick()}
             />
-            {/* <Text
-                style={styles.loginText}
-                onPress={() => this.props.navigation.navigate('Login')}>
-                Already Registered? Click here to login
-            </Text> */}
+            {
+                isSignUp ? (
+                    <Text
+                        style={styles.loginText}
+                        onPress={() => setIsSignUp(false)}>
+                        Already Registered? Click here to login
+                    </Text>
+                ) : (<Text
+                    style={styles.loginText}
+                    onPress={() => setIsSignUp(true)}>
+                    SignUp
+                </Text>)
+            }
         </View>
     );
 }

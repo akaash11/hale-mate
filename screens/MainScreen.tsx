@@ -39,6 +39,20 @@ const MainScreen = () => (
             }}
           >
             <Tab.Screen
+              name="New"
+              component={Messages}
+              options={{
+                tabBarIcon: ({ focused }) => (
+                  <TabBarIcon
+                    focused={focused}
+                    iconName="camera-outline"
+                    text="New"
+                  />
+                ),
+              }}
+            />
+
+            <Tab.Screen
               name="Explore"
               component={Home}
               options={{
@@ -53,28 +67,14 @@ const MainScreen = () => (
             />
 
             <Tab.Screen
-              name="Matches"
+              name="History"
               component={Matches}
               options={{
                 tabBarIcon: ({ focused }) => (
                   <TabBarIcon
                     focused={focused}
-                    iconName="heart"
-                    text="Matches"
-                  />
-                ),
-              }}
-            />
-
-            <Tab.Screen
-              name="Chat"
-              component={Messages}
-              options={{
-                tabBarIcon: ({ focused }) => (
-                  <TabBarIcon
-                    focused={focused}
-                    iconName="chatbubble"
-                    text="Chat"
+                    iconName="fast-food-outline"
+                    text="History"
                   />
                 ),
               }}
