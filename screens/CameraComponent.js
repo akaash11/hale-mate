@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, Image } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
+import { Icon } from '../components';
+import {
+  WHITE
+} from "../assets/styles";
 
 export default function CameraComponent({ onImageChange }) {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
@@ -52,10 +56,32 @@ export default function CameraComponent({ onImageChange }) {
           style={styles.camera}
           type={type}
           ratio={'16:9'}
-        />
+        >
+          <View style={{ flex: 1 , padding:10}}>
+            <View style={{ flex: 1 }}>
+            </View>
+            <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+            <TouchableOpacity onPress={() => {
+              setType(
+                type === Camera.Constants.Type.back
+                  ? Camera.Constants.Type.front
+                  : Camera.Constants.Type.back
+              );
+            }} >
+              <Icon name="camera-reverse-outline" color={WHITE} size={50} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => takePicture()} >
+              <Icon name="camera-sharp" color={WHITE} size={50} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => pickImage()} >
+              <Icon name="image-outline" color={WHITE} size={50} />
+            </TouchableOpacity></View>  
+          </View>
+        </Camera>
       </View>
 
-      <Button
+
+      {/* <Button
         style={styles.button}
         title="Flip Camera"
         onPress={() => {
@@ -65,10 +91,10 @@ export default function CameraComponent({ onImageChange }) {
               : Camera.Constants.Type.back
           );
         }}>
-      </Button>
+      </Button> */}
 
-      <Button title="Take Picture" onPress={() => takePicture()} />
-      <Button title="Pick an Image From Gallery" onPress={() => pickImage()} />
+      {/* <Button title="Take Picture" onPress={() => takePicture()} />
+      <Button title="Pick an Image From Gallery" onPress={() => pickImage()} /> */}
       {/* {image && <Image source={{uri: image}} style={{flex:1}} />} */}
     </View>
   );
