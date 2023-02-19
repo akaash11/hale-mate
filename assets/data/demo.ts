@@ -15,55 +15,51 @@ const data: DataT[] = [
     id: 1,
 	  isDummy : true,
     name: "Honey bake chicken",
-    isOnline: false,
+    isOnline: true,
     match: "78",
     description:
       "Pour over chicken parts and bake at 350 till golden brown, basting occasionally. Love this with fall squash and rice or potatoes to slop up the drippings.",
     message:
       "I love this food, yummy!!",
     image: IMAGE_01,
-    isDummy: true,
   },
   {
     id: 2,
-	  isDummy : true,
+	isDummy : true,
     name: "Home made tacos",
     match: "93",
     description:
       "Thanks to my tortilla press, my own seasoning mix, and a family who likes fewer toppings rather than more, this is a cheap, fast meal for us almost every week",
-    isOnline: false,
+    isOnline: true,
     message: "Tacos is my weakness",
     image: IMAGE_02,
-    isDummy: true,
   },
   {
     id: 3,
-	  isDummy : true,
+	isDummy : true,
     name: "Chicken fajitas",
     match: "65",
     description:
       "A variation on taco night, but a different set of spices, because I like variety. (Find both taco and fajita spice mix recipes in my books!) I use beef or chicken, chopped peppers, onions, and tomatoes",
-    isOnline: false,
+    isOnline: true,
     message:
       "My favorite recipe is in here",
     image: IMAGE_03,
-    isDummy: true,
   },
   {
     id: 4,
-    isDummy : true,
-    name: "chicken and dumplings",
-    match: "88",
+	isDummy : true,
+    name: "fried chicken and dumplings",
+    match: "45",
     description:
-      "Chicken and Dumplings. Oh, how I love thee. Thou comest together so quickly with such humble ingredients, and thrilleth my soul",
-    isOnline: true,
+      "fried Chicken and Dumplings. Oh, how I love thee. Thou comest together so quickly with such humble ingredients, and thrilleth my soul",
+    isOnline: false,
     message: "Yummy !!!",
     image: IMAGE_04,
-    isDummy: true,
   },
   {
     id: 5,
-	  isDummy : true,
+	isDummy : true,
     name: "pepperoni pizza",
     match: "70",
     description:
@@ -71,11 +67,10 @@ const data: DataT[] = [
     isOnline: true,
     message: "chessy.",
     image: IMAGE_05,
-    isDummy: true,
   },
   {
     id: 6,
-	  isDummy : true,
+	isDummy : true,
     name: "Stuffed Shells and Peppers",
     match: "90",
     description:
@@ -84,11 +79,10 @@ const data: DataT[] = [
     message:
       "this way you please everyone",
     image: IMAGE_06,
-    isDummy: true,
   },
   {
     id: 7,
-	  isDummy : true,
+	isDummy : true,
     name: "Quiche",
     match: "67",
     description:
@@ -97,11 +91,10 @@ const data: DataT[] = [
     message:
       "Quiche Quiche!!",
     image: IMAGE_07,
-    isDummy: true,
   },
   {
     id: 8,
-	  isDummy : true,
+	isDummy : true,
     name: "enchilladas",
     match: "85",
     description:
@@ -116,11 +109,10 @@ const data: DataT[] = [
     message:
       "spicy as i like it",
     image: IMAGE_08,
-    isDummy: true,
   },
   {
     id: 9,
-	  isDummy : true,
+	isDummy : true,
     name: "fried catfish",
     match: "74",
     description:
@@ -129,12 +121,11 @@ const data: DataT[] = [
     message:
       ".",
     image: IMAGE_09,
-    isDummy: true,
   },
   {
     id: 10,
-	  isDummy : true,
-    name: "key lime pie",
+	isDummy : true,
+    name: "key lime pie cheese",
     match: "30",
     description:
       "yey lime pie features a tangy yet sweet mixture of aromatic key limes, eggs, and condensed milk",
@@ -142,7 +133,6 @@ const data: DataT[] = [
     message:
       "sugar sugar yummy",
     image: IMAGE_10,
-    isDummy: true,
   },
 ];
 
