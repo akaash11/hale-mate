@@ -15,6 +15,7 @@ const App = () => {
         console.log(user);
         setIsLogedIn(true);
       } else {
+        setIsLogedIn(false);
         console.log("not loged in");
       }
   }); 
