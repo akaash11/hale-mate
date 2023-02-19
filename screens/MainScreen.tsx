@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home, Matches, Messages, Profile } from "./";
 import { PRIMARY_COLOR, DARK_GRAY, BLACK, WHITE } from "../assets/styles";
 import TabBarIcon from "../components/TabBarIcon";
+import CameraComponent from "./CameraComponent";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -40,7 +41,7 @@ const MainScreen = () => (
           >
             <Tab.Screen
               name="New"
-              component={Messages}
+              component={CameraComponent}
               options={{
                 tabBarIcon: ({ focused }) => (
                   <TabBarIcon
