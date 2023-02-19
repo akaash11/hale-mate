@@ -1,11 +1,11 @@
 // components/signup.js
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert, Image, TouchableOpacity } from 'react-native';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 const getMessageFromErrorCode = (errorCode: any): "Email Id already registered" | "Invalid EmailId" | "Invalid Password" | "Invalid User" | "Invalid User" => {
-    switch(errorCode){
+    switch (errorCode) {
         case "auth/email-already-exists":
             return "Email Id already registered";
         case "auth/invalid-email":
@@ -29,15 +29,15 @@ const SignUp = () => {
     }
     const loginUser = () => {
         signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => { 
-          const user = userCredential.user;
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode);
-          Alert.alert(getMessageFromErrorCode(errorCode));
-        });
+            .then((userCredential) => {
+                const user = userCredential.user;
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode);
+                Alert.alert(getMessageFromErrorCode(errorCode));
+            });
     }
     const registerUser = () => {
         if (email === '' && password === '') {
@@ -56,6 +56,8 @@ const SignUp = () => {
     }
     return (
         <View style={styles.container}>
+            <Image source={require("../assets/halemate.png")} style={{ width: 300, height: 300 }}
+            />
             {
                 isSignUp ? (<TextInput
                     style={styles.inputStyle}
@@ -81,21 +83,26 @@ const SignUp = () => {
             />
             <Button
                 color="#3740FE"
-                title={isSignUp?"Signup":"Login"}
+                title={isSignUp ? "Signup" : "Login"}
                 onPress={() => handleButtonClick()}
             />
             {
                 isSignUp ? (
-                    <Text
-                        style={styles.loginText}
-                        onPress={() => setIsSignUp(false)}>
-                        Already Registered? Click here to login
-                    </Text>
-                ) : (<Text
-                    style={styles.loginText}
-                    onPress={() => setIsSignUp(true)}>
-                    SignUp
-                </Text>)
+                    <TouchableOpacity onPress={() => setIsSignUp(false)}>
+                        <Text
+                            style={styles.loginText}
+                        >
+                            Already Registered? Click here to login
+                        </Text>
+                    </TouchableOpacity>
+                ) : (
+                    <TouchableOpacity onPress={() => setIsSignUp(false)}>
+                        <Text
+                            style={styles.loginText}
+                            onPress={() => setIsSignUp(true)}>
+                            SignUp
+                        </Text>
+                    </TouchableOpacity>)
             }
         </View>
     );
