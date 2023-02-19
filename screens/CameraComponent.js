@@ -49,7 +49,6 @@ export default function CameraComponent({ onImageChange }) {
     return <Text>No access to camera</Text>;
   }
   return (
-    <View style={styles.container}>
       <View style={styles.cameraContainer}>
         <Camera
           ref={ref => setCamera(ref)}
@@ -58,6 +57,7 @@ export default function CameraComponent({ onImageChange }) {
           ratio={'16:9'}
         >
           <View style={{ flex: 1 , padding:10}}>
+          <Text style={{color: '#FFFFFF', fontSize: 24, padding:16, fontWeight:'bold'}}>What you eating today? Lets see if its healthy!</Text>
             <View style={{ flex: 1 }}>
             </View>
             <View style={{flexDirection:'row', justifyContent:'space-between'}}>
@@ -80,23 +80,6 @@ export default function CameraComponent({ onImageChange }) {
         </Camera>
       </View>
 
-
-      {/* <Button
-        style={styles.button}
-        title="Flip Camera"
-        onPress={() => {
-          setType(
-            type === Camera.Constants.Type.back
-              ? Camera.Constants.Type.front
-              : Camera.Constants.Type.back
-          );
-        }}>
-      </Button> */}
-
-      {/* <Button title="Take Picture" onPress={() => takePicture()} />
-      <Button title="Pick an Image From Gallery" onPress={() => pickImage()} /> */}
-      {/* {image && <Image source={{uri: image}} style={{flex:1}} />} */}
-    </View>
   );
 }
 const styles = StyleSheet.create({
@@ -107,7 +90,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   cameraContainer: {
-    flex: 1
+    flex: 1,
+    marginTop: 40,
   },
   button: {
     flex: 1,

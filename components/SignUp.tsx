@@ -1,5 +1,6 @@
 // components/signup.js
 import React, { useState } from 'react';
+import Checkbox from 'expo-checkbox';
 import { StyleSheet, Text, View, TextInput, Button, Alert, Image, TouchableOpacity } from 'react-native';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
@@ -23,7 +24,8 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [displayName, setDisplayName] = useState('');
-    const [isSignUp, setIsSignUp] = useState(true);
+    const [isSignUp, setIsSignUp] = useState(false);
+    const [isChecked, setChecked] = useState(false);
     const handleButtonClick = () => {
         isSignUp ? registerUser() : loginUser();
     }
@@ -56,8 +58,7 @@ const SignUp = () => {
     }
     return (
         <View style={styles.container}>
-            <Image source={require("../assets/halemate.png")} style={{ width: 300, height: 300 }}
-            />
+            <Image source={require("../assets/halemate.png")} style={{ width: 300, height: 300 }} />
             {
                 isSignUp ? (<TextInput
                     style={styles.inputStyle}
@@ -81,6 +82,12 @@ const SignUp = () => {
                 maxLength={15}
                 secureTextEntry={true}
             />
+            {
+                isSignUp ? (<View style={styles.section}>
+                    <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+                    <Text style={styles.paragraph}>I am an expert. Note: You'll need to verify authenticity by follow-up mail.</Text>
+                </View>) : null
+            }
             <Button
                 color="#3740FE"
                 title={isSignUp ? "Signup" : "Login"}
@@ -104,6 +111,10 @@ const SignUp = () => {
                         </Text>
                     </TouchableOpacity>)
             }
+            <View style={{ flexDirection: 'row', justifyContent:'center', alignItems:'center', marginTop:40 }}>
+                <Text style={{ fontSize: 12, }}>Designed for humanity at </Text>
+                <Image source={require("../assets/h4hicon.png")} style={{ width: 80, height: 60 }} />
+            </View>
         </View>
     );
 }
@@ -140,5 +151,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#fff'
-    }
+    },
+    section: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 16,
+    },
+    paragraph: {
+        fontSize: 10,
+        paddingRight: 35,
+    },
+    checkbox: {
+        margin: 8,
+    },
 });

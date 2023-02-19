@@ -95,7 +95,8 @@ const MainScreen = () => {
 
                             <Tab.Screen
                                 name="Profile"
-                                component={Profile}
+                                // component={Profile}
+                                children={() => <Profile unratedCount={data.length} />}
                                 options={{
                                     tabBarIcon: ({ focused }) => (
                                         <TabBarIcon

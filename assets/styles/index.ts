@@ -79,7 +79,7 @@ export default StyleSheet.create({
   actionsCardItem: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 30,
+    paddingVertical: 16,
   },
   button: {
     width: 60,
@@ -115,7 +115,7 @@ export default StyleSheet.create({
     backgroundColor: WHITE,
     padding: 10,
     borderRadius: 20,
-    width: 100,
+    width: 150,
     elevation: 1,
     shadowOpacity: 0.05,
     shadowRadius: 10,
@@ -293,7 +293,8 @@ export default StyleSheet.create({
     justifyContent: "center",
     flexDirection: "row",
     alignItems: "center",
-    marginLeft: 10,
+    marginLeft: 20,
+    marginRight: 20,
     height: 50,
     borderRadius: 25,
     backgroundColor: SECONDARY_COLOR,

@@ -77,14 +77,14 @@ const CardItem = ({
       {/* ACTIONS */}
       {hasActions && (
         <View style={styles.actionsCardItem}>
+          <TouchableOpacity style={styles.button}>
+            <Icon name="close" color={DISLIKE_ACTIONS} size={25} />
+          </TouchableOpacity>
 
           <TouchableOpacity style={styles.button}>
             <Icon name="heart" color={LIKE_ACTIONS} size={25} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button}>
-            <Icon name="close" color={DISLIKE_ACTIONS} size={25} />
-          </TouchableOpacity>
           
         </View>
       )}
