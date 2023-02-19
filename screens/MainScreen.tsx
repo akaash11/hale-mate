@@ -76,14 +76,14 @@ const MainScreen = () => {
                             />
 
                             <Tab.Screen
-                                name="History"
+                                name="My Clicks"
                                 component={Matches}
                                 options={{
                                     tabBarIcon: ({ focused }) => (
                                         <TabBarIcon
                                             focused={focused}
                                             iconName="fast-food-outline"
-                                            text="History"
+                                            text="My Clicks"
                                         />
                                     ),
                                 }}

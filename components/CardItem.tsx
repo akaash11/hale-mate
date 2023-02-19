@@ -67,7 +67,7 @@ const CardItem = ({
         <View style={styles.status}>
           <View style={isOnline ? styles.online : styles.offline} />
           <Text style={styles.statusText}>
-            {isOnline ? "Online" : "Offline"}
+            {matches == "0" ? "Not enough reviews" : isOnline ? "Healthy" : "Not-so-healthy"}
           </Text>
         </View>
       )}

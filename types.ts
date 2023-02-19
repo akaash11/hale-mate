@@ -43,6 +43,7 @@ export type DataT = {
   name: string;
   isOnline: boolean;
   match: string;
+  isDummy: string;
   description: string;
   message: string;
   image: any;
