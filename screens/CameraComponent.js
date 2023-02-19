@@ -71,7 +71,7 @@ export default function CameraComponent({ onImageChange }) {
               <Icon name="camera-reverse-outline" color={WHITE} size={50} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => takePicture()} >
-              <Icon name="camera-sharp" color={WHITE} size={50} />
+              <Icon name="camera-outline" color={WHITE} size={50} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => pickImage()} >
               <Icon name="image-outline" color={WHITE} size={50} />

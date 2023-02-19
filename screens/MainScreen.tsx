@@ -57,7 +57,7 @@ const MainScreen = () => {
                                     tabBarIcon: ({ focused }) => (
                                         <TabBarIcon
                                             focused={focused}
-                                            iconName="camera-outline"
+                                            iconName="camera"
                                             text="New"
                                         />
                                     ),
@@ -86,7 +86,7 @@ const MainScreen = () => {
                                     tabBarIcon: ({ focused }) => (
                                         <TabBarIcon
                                             focused={focused}
-                                            iconName="fast-food-outline"
+                                            iconName="fast-food"
                                             text="My Clicks"
                                         />
                                     ),
