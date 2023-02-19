@@ -22,6 +22,7 @@ const data: DataT[] = [
     message:
       "I love this food, yummy!!",
     image: IMAGE_01,
+    isDummy: true,
   },
   {
     id: 2,
@@ -33,6 +34,7 @@ const data: DataT[] = [
     isOnline: false,
     message: "Tacos is my weakness",
     image: IMAGE_02,
+    isDummy: true,
   },
   {
     id: 3,
@@ -45,6 +47,7 @@ const data: DataT[] = [
     message:
       "My favorite recipe is in here",
     image: IMAGE_03,
+    isDummy: true,
   },
   {
     id: 4,
@@ -56,6 +59,7 @@ const data: DataT[] = [
     isOnline: true,
     message: "Yummy !!!",
     image: IMAGE_04,
+    isDummy: true,
   },
   {
     id: 5,
@@ -67,6 +71,7 @@ const data: DataT[] = [
     isOnline: true,
     message: "chessy.",
     image: IMAGE_05,
+    isDummy: true,
   },
   {
     id: 6,
@@ -79,6 +84,7 @@ const data: DataT[] = [
     message:
       "this way you please everyone",
     image: IMAGE_06,
+    isDummy: true,
   },
   {
     id: 7,
@@ -91,6 +97,7 @@ const data: DataT[] = [
     message:
       "Quiche Quiche!!",
     image: IMAGE_07,
+    isDummy: true,
   },
   {
     id: 8,
@@ -109,6 +116,7 @@ const data: DataT[] = [
     message:
       "spicy as i like it",
     image: IMAGE_08,
+    isDummy: true,
   },
   {
     id: 9,
@@ -121,6 +129,7 @@ const data: DataT[] = [
     message:
       ".",
     image: IMAGE_09,
+    isDummy: true,
   },
   {
     id: 10,
@@ -133,6 +142,7 @@ const data: DataT[] = [
     message:
       "sugar sugar yummy",
     image: IMAGE_10,
+    isDummy: true,
   },
 ];
 

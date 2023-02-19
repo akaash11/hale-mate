@@ -6,6 +6,7 @@ export type CardItemT = {
   isOnline?: boolean;
   matches?: string;
   name: string;
+  isDummy?: boolean;
 };
 
 export type IconT = {
@@ -42,6 +43,7 @@ export type DataT = {
   id: number;
   name: string;
   isOnline: boolean;
+  isDummy: boolean;
   match: string;
   isDummy: string;
   description: string;

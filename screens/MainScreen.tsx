@@ -12,10 +12,13 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const MainScreen = () => {
-    const data: DataT[] = [];
+    const data1: DataT[] = [];
+    const [data, setData] = useState(data1)
     const addToData = (d : DataT) => {
-        data.push(d);
-        console.log(data);
+        let newData = [...data];
+        newData.push(d);
+        setData(newData);
+        
     }
     return (
         <NavigationContainer>
@@ -77,7 +80,8 @@ const MainScreen = () => {
 
                             <Tab.Screen
                                 name="My Clicks"
-                                component={Matches}
+                                // component={Matches}
+                                children={() => <Matches data={data} />}
                                 options={{
                                     tabBarIcon: ({ focused }) => (
                                         <TabBarIcon

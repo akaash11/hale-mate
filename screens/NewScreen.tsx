@@ -25,6 +25,7 @@ const NewScreen = ({handleDataAdd} :any) => {
         let data = {} as DataT;
         data.description = description;
         data.name = title;
+        data.image = image;
         data.isOnline = false;
         handleDataAdd(data);
         setImage('');

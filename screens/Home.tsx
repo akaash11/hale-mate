@@ -31,6 +31,7 @@ const Home = () => {
                 hasActions
                 image={item.image}
                 name={item.name}
+                isDummy={true}
                 description={item.description}
                 matches={item.match}
               />

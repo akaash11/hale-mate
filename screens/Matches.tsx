@@ -11,7 +11,7 @@ import { CardItem, Icon } from "../components";
 import DEMO from "../assets/data/demo";
 import styles, { DARK_GRAY } from "../assets/styles";
 
-const Matches = () => (
+const Matches = ({data} : any) => (
   <ImageBackground
     source={require("../assets/images/bg.png")}
     style={styles.bg}
@@ -26,7 +26,7 @@ const Matches = () => (
 
       <FlatList
         numColumns={2}
-        data={DEMO}
+        data={data.concat(DEMO)}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity>
@@ -34,6 +34,7 @@ const Matches = () => (
               image={item.image}
               name={item.name}
               isOnline={item.isOnline}
+              isDummy={item.isDummy}
               hasVariant
             />
           </TouchableOpacity>
