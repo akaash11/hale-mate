@@ -48,10 +48,10 @@ const CardItem = ({
       
 
       {/* MATCHES */}
-      {matches && (
+      {matches && matches !== "0" && (
         <View style={styles.matchesCardItem}>
           <Text style={styles.matchesTextCardItem}>
-            <Icon name="heart" color={WHITE} size={13} /> {matches}% Match!
+             Hale <Icon name="speedometer" color={WHITE} size={13} /> {matches}%
           </Text>
         </View>
       )}
@@ -67,7 +67,7 @@ const CardItem = ({
       {/* STATUS */}
       {!description && (
         <View style={styles.status}>
-          <View style={isOnline ? styles.online : styles.offline} />
+          <View style={matches == "0" ? styles.unrated : isOnline ? styles.online : styles.offline} />
           <Text style={styles.statusText}>
             {matches == "0" ? "Not enough reviews" : isOnline ? "Healthy" : "Not-so-healthy"}
           </Text>

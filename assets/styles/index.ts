@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-export const PRIMARY_COLOR = "#7444C0";
+// export const PRIMARY_COLOR = "#7444C0";
+export const PRIMARY_COLOR = "#3D694A";
 export const SECONDARY_COLOR = "#5636B8";
 export const WHITE = "#FFFFFF";
 export const GRAY = "#757E90";
@@ -58,6 +59,13 @@ export default StyleSheet.create({
     width: 6,
     height: 6,
     backgroundColor: ONLINE_STATUS,
+    borderRadius: 3,
+    marginRight: 4,
+  },
+  unrated: {
+    width: 6,
+    height: 6,
+    backgroundColor: GRAY,
     borderRadius: 3,
     marginRight: 4,
   },

@@ -14,7 +14,7 @@ import styles, { WHITE } from "../assets/styles";
 import CameraComponent from "./CameraComponent";
 
 
-const NewScreen = ({handleDataAdd} :any) => {
+const NewScreen = ({ handleDataAdd }: any) => {
     const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -27,29 +27,30 @@ const NewScreen = ({handleDataAdd} :any) => {
         data.name = title;
         data.image = image;
         data.isOnline = false;
+        data.match = "0";
         handleDataAdd(data);
         setImage('');
         setTitle('');
         setDescription('');
         ToastAndroid.show("Submited", 100);
     }
-    return image ? <View style={{ flex: 1 , padding: 16, marginTop: 16}}>
+    return image ? <View style={{ flex: 1, padding: 16, marginTop: 16 }}>
         <Image source={{ uri: image }} resizeMethod={'resize'} resizeMode={'contain'} style={{ padding: 10, flex: 1 }} />
-        <View style={{marginTop:16}}>    
-        <Text>Describe your food in short:</Text>
-        <TextInput
-            style={styles1.inputStyle}
-            placeholder="Title"
-            value={title}
-            onChangeText={(val) => setTitle(val)}
-        />
-        <TextInput
-            style={styles1.inputStyle}
-            placeholder="Description"
-            value={description}
-            onChangeText={(val) => setDescription(val)}
-            maxLength={100}
-        />
+        <View style={{ marginTop: 16 }}>
+            <Text>Describe your food in short:</Text>
+            <TextInput
+                style={styles1.inputStyle}
+                placeholder="Title"
+                value={title}
+                onChangeText={(val) => setTitle(val)}
+            />
+            <TextInput
+                style={styles1.inputStyle}
+                placeholder="Description"
+                value={description}
+                onChangeText={(val) => setDescription(val)}
+                maxLength={100}
+            />
         </View>
         <TouchableOpacity style={styles.roundedButton} onPress={() => handleSubmit()}>
             <Icon name="pizza-outline" size={20} color={WHITE} />

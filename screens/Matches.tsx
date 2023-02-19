@@ -35,6 +35,7 @@ const Matches = ({data} : any) => (
               name={item.name}
               isOnline={item.isOnline}
               isDummy={item.isDummy}
+              matches={item.match}
               hasVariant
             />
           </TouchableOpacity>
